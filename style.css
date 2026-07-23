@@ -1,1 +1,125 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+body{
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:white;
+    overflow:hidden;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(135deg,#000,#111,#1a1a1a);
+}
+
+h1{
+    font-family:'Cinzel',serif;
+    font-size:60px;
+    color:#FFD700;
+    text-shadow:0 0 20px #FFD700;
+    margin:10px 0;
+}
+
+h2{
+    color:#ffffff;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#FFD700;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+p{
+    max-width:600px;
+    color:#dddddd;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+button{
+    background:#FFD700;
+    color:#000;
+    border:none;
+    padding:18px 40px;
+    font-size:20px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.4s;
+    font-weight:bold;
+    box-shadow:0 0 25px #FFD700;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 45px #FFD700;
+}
+
+.hero{
+    animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#particles{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,215,0,.15),transparent 20%),
+    radial-gradient(circle at 80% 40%,rgba(255,215,0,.1),transparent 20%),
+    radial-gradient(circle at 50% 90%,rgba(255,215,0,.12),transparent 20%);
+    animation:glow 8s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes glow{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.2);
+    }
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:42px;
+}
+
+h3{
+font-size:24px;
+}
+
+p{
+font-size:16px;
+}
+
+button{
+font-size:18px;
+padding:15px 30px;
+}
+
+}
