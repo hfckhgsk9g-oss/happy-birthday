@@ -1,208 +1,397 @@
-const loader = document.getElementById("loader");
-const welcome = document.getElementById("welcome");
+// ============================================
+// HAPPY BIRTHDAY WEBSITE
+// Version 1
+// Part 1
+// ============================================
+
+// -------------------------------
+// ELEMENTS
+// -------------------------------
+
+const screens = {
+    loader: document.getElementById("loader"),
+    welcome: document.getElementById("welcome"),
+    story: document.getElementById("story"),
+    countdown: document.getElementById("countdown"),
+    intro: document.getElementById("intro"),
+    letter: document.getElementById("letter"),
+    celebration: document.getElementById("celebration"),
+    video: document.getElementById("videoScreen"),
+    ending: document.getElementById("ending")
+};
+
 const startBtn = document.getElementById("startBtn");
+const continueBtn = document.getElementById("continueBtn");
 
-// Loading Animation
-window.onload = () => {
+const countNumber = document.getElementById("countNumber");
+const introText = document.getElementById("introText");
+const typingText = document.getElementById("typingText");
 
-    setTimeout(() => {
+const birthdayVideo = document.getElementById("birthdayVideo");
 
-        loader.style.opacity = "0";
-        loader.style.transition = "1s";
+// -------------------------------
+// LETTER MESSAGE
+// -------------------------------
 
-        setTimeout(() => {
+const birthdayMessage = `Dear Dr. Amna Anwar ❤️
 
-            loader.style.display = "none";
+Today isn't just another day.
 
-            welcome.style.display = "flex";
+Today is the day Allah blessed this world with someone truly special.
 
-            welcome.animate([
-                {
-                    opacity:0,
-                    transform:"translateY(40px)"
-                },
-                {
-                    opacity:1,
-                    transform:"translateY(0px)"
-                }
-            ],{
+On your birthday, I pray that Allah fills your life with endless happiness, peace, good health, success and beautiful memories.
 
-                duration:1000,
-                fill:"forwards",
-                easing:"ease-out"
+May your smile always remain as bright as it is today.
 
-            });
+May every dream in your heart come true.
 
-        },1000);
+Thank you for being such a wonderful person.
+
+Happy Birthday once again.
+
+May Allah always protect you and bless every step of your journey.
+
+Forever Yours,
+
+Aflatoon 😎 ❤️`;
+
+
+// -------------------------------
+// SHOW SCREEN
+// -------------------------------
+
+function showScreen(screenName){
+
+    Object.values(screens).forEach(screen=>{
+
+        screen.classList.remove("active");
+
+    });
+
+    screens[screenName].classList.add("active");
+
+}
+
+
+
+// -------------------------------
+// APP START
+// -------------------------------
+
+window.onload = ()=>{
+
+    showScreen("loader");
+
+    setTimeout(()=>{
+
+        showScreen("welcome");
 
     },2500);
 
 };
 
 
-// Button Click
 
-startBtn.onclick = () => {
+// -------------------------------
+// START BUTTON
+// -------------------------------
 
-document.body.style.transition="1s";
-document.body.style.opacity="0";
+startBtn.addEventListener("click",()=>{
 
-setTimeout(()=>{
+    showStory();
 
-document.body.innerHTML=`
-
-<section style="
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:black;
-flex-direction:column;
-color:white;
-font-family:Poppins;
-text-align:center;
-padding:30px;
-">
-
-<h2 style="
-color:#FFD700;
-letter-spacing:4px;
-margin-bottom:20px;
-">
-
-Every Beautiful Story...
-
-</h2>
-
-<p style="
-font-size:24px;
-max-width:500px;
-line-height:1.8;
-">
-
-Begins with one special person.
-
-</p>
-
-</section>
-
-`;
-
-document.body.style.opacity="1";
-
-setTimeout(showCountdown,2500);
-
-},1000);
-
-};
+});
 
 
+
+// -------------------------------
+// STORY SCREEN
+// -------------------------------
+
+function showStory(){
+
+    showScreen("story");
+
+    setTimeout(()=>{
+
+        showCountdown();
+
+    },3000);
+
+}
+
+
+
+// -------------------------------
+// COUNTDOWN
+// -------------------------------
 
 function showCountdown(){
 
-document.body.innerHTML=`
+    showScreen("countdown");
 
-<section style="
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#000;
-">
+    let number = 3;
 
-<h1 id="countNumber"
-style="
-font-size:150px;
-color:#FFD700;
-font-family:Cinzel;
-">
-3
-</h1>
+    countNumber.innerHTML = number;
 
-</section>
+    const timer = setInterval(()=>{
 
-`;
+        number--;
 
-let number=3;
+        if(number>0){
 
-const interval=setInterval(()=>{
+            countNumber.innerHTML = number;
 
-number--;
+        }else{
 
-if(number>0){
+            clearInterval(timer);
 
-document.getElementById("countNumber").innerHTML=number;
+            showIntro();
 
-}else{
+        }
 
-clearInterval(interval);
-
-// Next Part
-showIntro();
+    },1000);
 
 }
+// ============================================
+// Version 1
+// Part 2
+// ============================================
 
-},1000);
+// -------------------------------
+// CINEMATIC INTRO
+// -------------------------------
 
-}
-function showIntro(){
+const introLines = [
 
-const lines = [
-"Close your eyes...",
-"And make a wish...",
-"Because today...",
-"...is all about you."
+    "Close your eyes...",
+
+    "And make a wish...",
+
+    "Because today...",
+
+    "...is all about you."
+
 ];
 
-let index = 0;
+function showIntro(){
 
-document.body.innerHTML = `
-<section id="introScreen" style="
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#000;
-">
-<h1 id="introText" style="
-color:#FFD700;
-font-size:38px;
-text-align:center;
-opacity:0;
-transition:1s;
-">
-</h1>
-</section>
-`;
+    showScreen("intro");
 
-const text = document.getElementById("introText");
+    let index = 0;
 
-function nextLine(){
+    function nextLine(){
 
-if(index >= lines.length){
+        if(index >= introLines.length){
 
-setTimeout(showLetter,1000);
+            setTimeout(()=>{
 
-return;
+                showLetter();
 
-}
+            },1200);
 
-text.style.opacity="0";
+            return;
 
-setTimeout(()=>{
+        }
 
-text.innerHTML=lines[index];
+        introText.style.opacity = "0";
 
-text.style.opacity="1";
+        setTimeout(()=>{
 
-index++;
+            introText.innerHTML = introLines[index];
 
-setTimeout(nextLine,2000);
+            introText.style.opacity = "1";
 
-},700);
+            index++;
+
+            setTimeout(nextLine,2200);
+
+        },500);
+
+    }
+
+    nextLine();
 
 }
 
-nextLine();
+
+
+// -------------------------------
+// LETTER
+// -------------------------------
+
+function showLetter(){
+
+    showScreen("letter");
+
+    typingText.innerHTML = "";
+
+    continueBtn.style.display = "none";
+
+    let index = 0;
+
+    const speed = 35;
+
+    const typing = setInterval(()=>{
+
+        typingText.innerHTML += birthdayMessage.charAt(index);
+
+        index++;
+
+        if(index >= birthdayMessage.length){
+
+            clearInterval(typing);
+
+            setTimeout(()=>{
+
+                continueBtn.style.display = "inline-block";
+
+                continueBtn.animate([
+
+                    {
+
+                        opacity:0,
+
+                        transform:"translateY(20px)"
+
+                    },
+
+                    {
+
+                        opacity:1,
+
+                        transform:"translateY(0px)"
+
+                    }
+
+                ],{
+
+                    duration:800,
+
+                    fill:"forwards",
+
+                    easing:"ease-out"
+
+                });
+
+            },1200);
+
+        }
+
+    },speed);
 
 }
+
+
+
+// -------------------------------
+// BLINKING CURSOR
+// -------------------------------
+
+setInterval(()=>{
+
+    const cursor = document.getElementById("cursor");
+
+    if(cursor){
+
+        cursor.style.visibility =
+
+        cursor.style.visibility=="hidden"
+
+        ? "visible"
+
+        : "hidden";
+
+    }
+
+},500);
+
+
+
+// -------------------------------
+// CONTINUE BUTTON
+// -------------------------------
+
+continueBtn.addEventListener("click",()=>{
+
+    showCelebration();
+
+});
+// ============================================
+// Version 1
+// Part 3
+// ============================================
+
+// -------------------------------
+// CELEBRATION
+// -------------------------------
+
+function showCelebration(){
+
+    showScreen("celebration");
+
+    // Version 2 will add:
+    // ✨ Golden Particles
+    // ❤️ Hearts
+    // 🌹 Rose Petals
+    // 🎆 Fireworks
+
+    setTimeout(()=>{
+
+        showVideo();
+
+    },3000);
+
+}
+
+
+
+// -------------------------------
+// VIDEO
+// -------------------------------
+
+function showVideo(){
+
+    showScreen("video");
+
+    birthdayVideo.currentTime = 0;
+
+    birthdayVideo.play();
+
+    birthdayVideo.onended = ()=>{
+
+        showEnding();
+
+    };
+
+}
+
+
+
+// -------------------------------
+// ENDING
+// -------------------------------
+
+function showEnding(){
+
+    showScreen("ending");
+
+}
+
+
+
+// -------------------------------
+// VIDEO AUTOPLAY FIX
+// -------------------------------
+
+document.addEventListener("click",()=>{
+
+    birthdayVideo.play().catch(()=>{});
+
+},{once:true});
+
+
+
+// ============================================
+// END OF VERSION 1
+// ============================================
