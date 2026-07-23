@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#111,#ff4d6d);
+font-family:Arial,sans-serif;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+padding:20px;
+}
+
+button{
+margin-top:20px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:20px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
+}
+
+#message{
+display:none;
+margin-top:30px;
+font-size:24px;
+animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎂 Happy Birthday ❤️</h1>
+
+<p>I made something special just for you.</p>
+
+<button onclick="showLove()">Open My Heart ❤️</button>
+
+<div id="message">
+<h2>🎉 Happy Birthday My Love ❤️</h2>
+
+<p>
+You are the most beautiful part of my life.<br><br>
+
+May your smile always shine,<br>
+May your dreams always come true,<br>
+And may we create countless beautiful memories together.<br><br>
+
+❤️ I Love You Forever ❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+function showLove(){
+document.getElementById("message").style.display="block";
+}
+</script>
+
+</body>
+</html>
