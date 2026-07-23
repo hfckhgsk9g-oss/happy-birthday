@@ -5,231 +5,132 @@ box-sizing:border-box;
 }
 
 body{
-
-font-family:'Poppins',sans-serif;
-
 background:#000;
-
+font-family:'Poppins',sans-serif;
+color:#fff;
 overflow:hidden;
-
-color:white;
-
 }
 
 #loader{
-
 position:fixed;
-
-inset:0;
-
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:#000;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 z-index:999;
-
-transition:1s;
-
 }
 
-.loader-circle{
-
+.loader-ring{
 width:90px;
-
 height:90px;
-
 border-radius:50%;
-
 border:4px solid rgba(255,255,255,.1);
-
-border-top:4px solid gold;
-
+border-top:4px solid #FFD700;
 animation:spin 1s linear infinite;
-
 margin-bottom:25px;
-
 }
 
 @keyframes spin{
-
 100%{
-
 transform:rotate(360deg);
-
+}
 }
 
-}
-
-#loader h2{
-
-font-weight:300;
-
-letter-spacing:3px;
-
+#loader p{
 color:#FFD700;
-
+letter-spacing:3px;
+font-size:16px;
 }
 
 #welcome{
-
-height:100vh;
-
 display:none;
-
+height:100vh;
 justify-content:center;
-
 align-items:center;
-
 padding:25px;
-
-background:
-radial-gradient(circle at top,#222,#000 60%);
-
+background:radial-gradient(circle at top,#222,#000 70%);
 }
 
 .glass{
-
 width:100%;
-
 max-width:700px;
-
-padding:45px;
-
+padding:40px 25px;
 border-radius:30px;
-
 background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(18px);
-
+backdrop-filter:blur(20px);
 border:1px solid rgba(255,215,0,.25);
-
+box-shadow:0 0 40px rgba(255,215,0,.15);
 text-align:center;
-
-box-shadow:
-0 0 40px rgba(255,215,0,.2);
-
 }
 
-.small{
-
-letter-spacing:5px;
-
+.made{
 font-size:14px;
-
-color:#ccc;
-
+letter-spacing:4px;
+color:#bbb;
 }
 
 h1{
-
 font-family:'Cinzel',serif;
-
-font-size:52px;
-
-margin:10px 0;
-
+font-size:48px;
+margin:12px 0;
 color:#FFD700;
-
 }
 
 h2{
-
 font-size:34px;
-
 margin-top:20px;
-
 }
 
 h3{
-
 font-size:28px;
-
 margin:15px 0;
-
 color:#FFD700;
-
 }
 
-.message{
-
-margin:30px auto;
-
+p{
 line-height:1.8;
-
-font-size:18px;
-
+margin:25px 0;
 color:#ddd;
-
-max-width:500px;
-
 }
 
 button{
-
-padding:18px 40px;
-
-border:none;
-
-border-radius:60px;
-
-font-size:18px;
-
-cursor:pointer;
-
 background:#FFD700;
-
 color:#000;
-
+border:none;
+padding:18px 40px;
+border-radius:50px;
+font-size:18px;
 font-weight:bold;
-
+cursor:pointer;
 transition:.35s;
-
 }
 
 button:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 35px gold;
-
+transform:scale(1.05);
+box-shadow:0 0 30px gold;
 }
 
 @media(max-width:768px){
 
 h1{
-
 font-size:38px;
-
 }
 
 h2{
-
-font-size:26px;
-
+font-size:28px;
 }
 
 h3{
-
 font-size:22px;
-
-}
-
-.message{
-
-font-size:16px;
-
 }
 
 .glass{
-
 padding:30px 20px;
-
 }
 
 }
