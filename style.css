@@ -123,3 +123,32 @@ padding:15px 30px;
 }
 
 }
+#countdown{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#000;
+}
+
+#number{
+font-size:140px;
+color:#FFD700;
+font-family:'Cinzel',serif;
+text-shadow:0 0 40px gold;
+animation:zoom 1s infinite;
+}
+
+@keyframes zoom{
+
+0%{
+transform:scale(.8);
+opacity:.5;
+}
+
+100%{
+transform:scale(1.2);
+opacity:1;
+}
+
+}
