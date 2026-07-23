@@ -138,10 +138,71 @@ document.getElementById("countNumber").innerHTML=number;
 clearInterval(interval);
 
 // Next Part
-alert("Countdown Completed ❤️");
+showIntro();
 
 }
 
 },1000);
+
+}
+function showIntro(){
+
+const lines = [
+"Close your eyes...",
+"And make a wish...",
+"Because today...",
+"...is all about you."
+];
+
+let index = 0;
+
+document.body.innerHTML = `
+<section id="introScreen" style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#000;
+">
+<h1 id="introText" style="
+color:#FFD700;
+font-size:38px;
+text-align:center;
+opacity:0;
+transition:1s;
+">
+</h1>
+</section>
+`;
+
+const text = document.getElementById("introText");
+
+function nextLine(){
+
+if(index >= lines.length){
+
+setTimeout(showLetter,1000);
+
+return;
+
+}
+
+text.style.opacity="0";
+
+setTimeout(()=>{
+
+text.innerHTML=lines[index];
+
+text.style.opacity="1";
+
+index++;
+
+setTimeout(nextLine,2000);
+
+},700);
+
+}
+
+nextLine();
 
 }
